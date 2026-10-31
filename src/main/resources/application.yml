@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:cloud}
+    username: ${DB_USER:cloud}
+    password: ${DB_PASSWORD:cloud}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+cloud:
+  storage:
+    path: ${STORAGE_PATH:./data/storage}
+
+cors:
+  allowed-origins: ${CORS_ORIGIN:http://localhost:8081}
