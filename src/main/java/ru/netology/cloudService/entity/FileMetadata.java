@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Table(name = "files", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "filename"}))
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class FileMetadata {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
